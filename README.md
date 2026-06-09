@@ -147,7 +147,8 @@ b = int(input("b 값을 입력하세요: "))
 ### ✏️ 연습 2-2 — BMI 계산기
 
 > BMI = 체중(kg) / 신장(m)²
-
+>
+- 저체중: 20 미만만
 - 정상: 20~25
 - 과체중: 25~29.9
 - 비만: 30~40
@@ -298,8 +299,8 @@ if n < 2:
 else:
     for i in range(2, n):
         if n % i == 0:
-            # 나누어지면 소수가 아님 → is_prime 을 False로 바꾸고 break
-            pass  # 여기를 완성하세요
+            is_prime = False # ← 이 두 줄을 직접 작성해보세요
+            break            #
 
 if is_prime:
     print(f"{n}은(는) 소수입니다! ✅")
@@ -351,6 +352,8 @@ else:
 ```python
 scores = {}
 n = int(input("학생 수를 입력하세요: "))
+if n == 0:
+    print("학생이 없습니다.")
 
 for i in range(n):
     name = input(f"학생 {i+1} 이름: ")
@@ -464,3 +467,184 @@ print("원주율 근사값:", pi)
 
 ---
 
+---
+
+## 💡 정답
+
+<details>
+<summary>✏️ 연습 1-1 — 중복 제거 정답 보기</summary>
+
+```python
+numbers =[1][2]
+
+unique = set(numbers)
+print("중복 제거된 집합:", unique)
+print("원소의 개수:", len(unique))
+```
+
+</details>
+
+---
+
+<details>
+<summary>✏️ 연습 1-2 — 딕셔너리 출력 정답 보기</summary>
+
+```python
+my_info = {
+    '이름': '홍길동',
+    '나이': 20,
+    '좋아하는 언어': 'Python'
+}
+
+for key, value in my_info.items():
+    print(key, ":", value)
+```
+
+</details>
+
+---
+
+<details>
+<summary>✏️ 연습 2-1 — 두 수 비교 정답 보기</summary>
+
+```python
+a = int(input("a 값을 입력하세요: "))
+b = int(input("b 값을 입력하세요: "))
+
+if a >= 100 and b >= 100:
+    print("Both Big Enough")
+elif a >= 100 or b >= 100:
+    print("Only One Big Enough")
+else:
+    print("Not Big Enough")
+```
+
+</details>
+
+---
+
+<details>
+<summary>✏️ 연습 2-2 — BMI 계산기 정답 보기</summary>
+
+```python
+weight = float(input("체중(kg)을 입력하세요: "))
+height = float(input("신장(cm)을 입력하세요: "))
+
+height_m = height / 100
+bmi = weight / (height_m ** 2)
+print(f"BMI: {bmi:.2f}")
+
+if bmi >= 40:
+    print("고도비만입니다.")
+elif bmi >= 30:
+    print("비만입니다.")
+elif bmi >= 25:
+    print("과체중입니다.")
+elif bmi >= 20:
+    print("정상입니다.")
+else:
+    print("저체중입니다.")
+```
+
+</details>
+
+---
+
+<details>
+<summary>✏️ 연습 2-3 — 사칙연산 계산기 정답 보기</summary>
+
+```python
+num1 = float(input("첫 번째 숫자: "))
+op = input("연산자 (+, -, *, /): ")
+num2 = float(input("두 번째 숫자: "))
+
+if op == '+':
+    print("결과:", num1 + num2)
+elif op == '-':
+    print("결과:", num1 - num2)
+elif op == '*':
+    print("결과:", num1 * num2)
+elif op == '/':
+    if num2 == 0:
+        print("0으로 나눌 수 없습니다.")
+    else:
+        print("결과:", num1 / num2)
+else:
+    print("올바른 연산자를 입력하세요.")
+```
+
+</details>
+
+---
+
+<details>
+<summary>✏️ 연습 3-1 — 문자열 거꾸로 출력 정답 보기</summary>
+
+```python
+s = input("문장을 입력하세요: ")
+length = len(s) - 1
+
+for i in range(length, -1, -1):
+    print(s[i], end='')
+print()
+```
+
+</details>
+
+---
+
+<details>
+<summary>✏️ 연습 3-2 — while 구구단 출력 정답 보기</summary>
+
+```python
+num = int(input("구구단 몇 단을 출력할까요? "))
+
+i = 1
+while i <= 9:
+    print(f"{num} x {i} = {num * i}")
+    i += 1
+```
+
+</details>
+
+---
+
+<details>
+<summary>🎯 응용 4-1 — 소수 판별기 정답 보기</summary>
+
+```python
+n = int(input("자연수를 입력하세요: "))
+
+is_prime = True
+
+if n < 2:
+    is_prime = False
+else:
+    for i in range(2, n):
+        if n % i == 0:
+            is_prime = False
+            break
+
+if is_prime:
+    print(f"{n}은(는) 소수입니다! ✅")
+else:
+    print(f"{n}은(는) 소수가 아닙니다. ❌")
+```
+
+</details>
+
+---
+
+<details>
+<summary>🎯 응용 4-4 — 피라미드 패턴 정답 보기</summary>
+
+```python
+n = int(input("피라미드 높이를 입력하세요: "))
+
+for i in range(1, n + 1):
+    spaces = ' ' * (n - i)
+    stars = '*' * (2 * i - 1)
+    print(spaces + stars)
+```
+
+</details>

@@ -475,7 +475,7 @@ print("원주율 근사값:", pi)
 <summary>✏️ 연습 1-1 — 중복 제거 정답 보기</summary>
 
 ```python
-numbers =[1][2]
+numbers =[1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
 
 unique = set(numbers)
 print("중복 제거된 집합:", unique)

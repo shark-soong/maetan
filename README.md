@@ -299,8 +299,8 @@ if n < 2:
 else:
     for i in range(2, n):
         if n % i == 0:
-            is_prime = False # ← 이 두 줄을 직접 작성해보세요
-            break            #
+            is_prime = # ← 이 줄을 직접 작성해보세요
+            break      
 
 if is_prime:
     print(f"{n}은(는) 소수입니다! ✅")
@@ -315,86 +315,7 @@ else:
 컴퓨터가 1~100 사이 임의의 수를 정하고, 사용자가 맞출 때까지 힌트를 줍니다.
 
 - 입력한 수가 정답보다 **크면** `"더 작은 수를 입력하세요"`
-- 입력한 수가 정답보다 **작으면** `"더 큰 수를 입력하세요"`
-- 최대 **7번** 안에 맞추면 성공
-
-```python
-import random
-
-answer = random.randint(1, 100)
-max_tries = 7
-tries = 0
-
-print("🎮 숫자 맞추기 게임! 1~100 사이의 수를 맞춰보세요.")
-print(f"기회는 {max_tries}번입니다.")
-
-while tries < max_tries:
-    guess = int(input(f"[{tries+1}/{max_tries}] 숫자를 입력하세요: "))
-    tries += 1
-
-    if guess == answer:
-        print(f"🎉 정답! {tries}번 만에 맞췄습니다!")
-        break
-    elif guess > answer:
-        print("📉 더 작은 수를 입력하세요.")
-    else:
-        print("📈 더 큰 수를 입력하세요.")
-else:
-    print(f"😢 실패! 정답은 {answer}이었습니다.")
-```
-
----
-
-### 🎯 응용 4-3 — 성적 분석기
-
-학생 이름과 점수를 딕셔너리로 저장하고, 평균·최고점·최저점을 구하세요.
-
-```python
-scores = {}
-n = int(input("학생 수를 입력하세요: "))
-if n == 0:
-    print("학생이 없습니다.")
-
-for i in range(n):
-    name = input(f"학생 {i+1} 이름: ")
-    score = int(input(f"{name}의 점수: "))
-    scores[name] = score
-
-print("\n📊 성적 결과")
-print("-" * 25)
-
-for name, score in scores.items():
-    grade = 'A' if score >= 90 else 'B' if score >= 80 else 'C' if score >= 70 else 'D' if score >= 60 else 'F'
-    print(f"{name:10s}: {score:3d}점 ({grade})")
-
-print("-" * 25)
-print(f"평균: {sum(scores.values()) / len(scores):.1f}점")
-print(f"최고: {max(scores, key=scores.get)} {max(scores.values())}점")
-print(f"최저: {min(scores, key=scores.get)} {min(scores.values())}점")
-```
-
----
-
-### 🎯 응용 4-4 — 피라미드 패턴 출력
-
-`n`을 입력받아 아래와 같은 별(★) 피라미드를 출력하세요.
-
-```text
-    *
-   ***
-  *****
- *******
-**
-```
-
-- 힌트: 공백 수 = `n - i`, 별 수 = `2*i - 1`
-
-```python
-n = int(input("피라미드 높이를 입력하세요: "))
-
-for i in range(1, n + 1):
-    spaces = ' ' * (n - i)
-    stars = '*' * (2 * i - 1)
+- 입력한 수가 정답보다 **작으면** `"더 큰 요
     print(spaces + stars)
 ```
 

@@ -474,7 +474,7 @@ print("원주율 근사값:", pi)
 
 ## 💡 정답
 
-<details>
+<details markdown="1">
 <summary>✏️ 연습 1-1 — 중복 제거 정답 보기</summary>
 
 ```python
@@ -489,7 +489,7 @@ print("원소의 개수:", len(unique))
 
 ---
 
-<details>
+<details markdown="1">
 <summary>✏️ 연습 1-2 — 딕셔너리 출력 정답 보기</summary>
 
 ```python
@@ -507,7 +507,7 @@ for key, value in my_info.items():
 
 ---
 
-<details>
+<details markdown="1">
 <summary>✏️ 연습 2-1 — 두 수 비교 정답 보기</summary>
 
 ```python
@@ -526,7 +526,7 @@ else:
 
 ---
 
-<details>
+<details markdown="1">
 <summary>✏️ 연습 2-2 — BMI 계산기 정답 보기</summary>
 
 ```python
@@ -553,7 +553,7 @@ else:
 
 ---
 
-<details>
+<details markdown="1">
 <summary>✏️ 연습 2-3 — 사칙연산 계산기 정답 보기</summary>
 
 ```python
@@ -580,7 +580,7 @@ else:
 
 ---
 
-<details>
+<details markdown="1">
 <summary>✏️ 연습 3-1 — 문자열 거꾸로 출력 정답 보기</summary>
 
 ```python
@@ -596,7 +596,7 @@ print()
 
 ---
 
-<details>
+<details markdown="1">
 <summary>✏️ 연습 3-2 — while 구구단 출력 정답 보기</summary>
 
 ```python
@@ -612,7 +612,7 @@ while i <= 9:
 
 ---
 
-<details>
+<details markdown="1">
 <summary>🎯 응용 4-1 — 소수 판별기 정답 보기</summary>
 
 ```python
@@ -638,7 +638,7 @@ else:
 
 ---
 
-<details>
+<details markdown="1">
 <summary>🎯 응용 4-2 — 숫자 맞추기 게임 정답 보기</summary>
 
 ```python
@@ -670,7 +670,7 @@ else:
 
 ---
 
-<details>
+<details markdown="1">
 <summary>🎯 응용 4-3 — 성적 분석기 정답 보기</summary>
 
 ```python
@@ -698,7 +698,7 @@ print(f"최저: {min(scores, key=scores.get)} {min(scores.values())}점")
 
 ---
 
-<details>
+<details markdown="1">
 <summary>🎯 응용 4-4 — 피라미드 패턴 정답 보기</summary>
 
 ```python
@@ -714,7 +714,7 @@ for i in range(1, n + 1):
 
 ---
 
-<details>
+<details markdown="1">
 <summary>🎯 응용 4-5 — 단어 빈도 분석기 정답 보기</summary>
 
 ```python

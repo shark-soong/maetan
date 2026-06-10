@@ -395,7 +395,6 @@ print(f"최저: {min(scores, key=scores.get)} {min(scores.values())}점")
 n = int(input("피라미드 높이를 입력하세요: "))
 
 for i in range(1, n + 1):
-    # 여기에 코드를 작성하세요
     spaces = ' ' * (n - i)
     stars = '*' * (2 * i - 1)
     print(spaces + stars)

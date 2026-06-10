@@ -365,18 +365,7 @@ for i in range(n):
 print("\n📊 성적 결과")
 print("-" * 25)
 for name, score in scores.items():
-scores = {}
-n = int(input("학생 수를 입력하세요: "))
-
-for i in range(n):
-    name = input(f" 학생 {i+1} 이름: ")
-    score = int(input(f" {name}의 점수: "))
-    scores[name] = score
-
-print("\n📊 성적 결과")
-print("-" * 25)
-for name, score in scores.items():
-    if score >= :                   #score >= 에 들어갈 숫자를 적어보세요!
+    if score >= :                #score >= 다음에 들어갈 점수를 채워보세요!
         grade = 'A'
     elif score >= :
         grade = 'B'
@@ -386,12 +375,6 @@ for name, score in scores.items():
         grade = 'D'
     else:
         grade = 'F'
-    print(f"{name:10s}: {score:3d}점 ({grade})")
-
-print("-" * 25)
-print(f"평균: {sum(scores.values()) / len(scores):.1f}점")
-print(f"최고: {max(scores, key=scores.get)} {max(scores.values())}점")
-print(f"최저: {min(scores, key=scores.get)} {min(scores.values())}점")
     print(f"{name:10s}: {score:3d}점 ({grade})")
 
 print("-" * 25)
@@ -710,17 +693,6 @@ for i in range(n):
 print("\n📊 성적 결과")
 print("-" * 25)
 for name, score in scores.items():
-scores = {}
-n = int(input("학생 수를 입력하세요: "))
-
-for i in range(n):
-    name = input(f" 학생 {i+1} 이름: ")
-    score = int(input(f" {name}의 점수: "))
-    scores[name] = score
-
-print("\n📊 성적 결과")
-print("-" * 25)
-for name, score in scores.items():
     if score >= 90:
         grade = 'A'
     elif score >= 80:
@@ -731,12 +703,6 @@ for name, score in scores.items():
         grade = 'D'
     else:
         grade = 'F'
-    print(f"{name:10s}: {score:3d}점 ({grade})")
-
-print("-" * 25)
-print(f"평균: {sum(scores.values()) / len(scores):.1f}점")
-print(f"최고: {max(scores, key=scores.get)} {max(scores.values())}점")
-print(f"최저: {min(scores, key=scores.get)} {min(scores.values())}점")
     print(f"{name:10s}: {score:3d}점 ({grade})")
 
 print("-" * 25)

@@ -279,15 +279,16 @@ while i <= 9:
 
 ---
 
-## 🔥 Part 4. 응용 예제
+## 🔥 Part 4. 응용 예제 (난이도 ★★☆)
 
-> 지금까지 배운 조건문 + 반복문 + 자료형을 함께 활용해봅니다.
+> 지금까지 배운 조건문 + 반복문 + 자료형을 **함께** 활용해봅니다.
 
 ### 🎯 응용 4-1 — 소수(Prime Number) 판별기
 
 1보다 큰 자연수 `n`을 입력받아, 소수인지 판별하세요.
 
 - 힌트: 2부터 `n-1`까지 나누어지는 수가 있으면 소수가 아닙니다.
+- `is_prime` 플래그 변수와 `for` + `break`를 활용하세요.
 
 ```python
 n = int(input("자연수를 입력하세요: "))
@@ -300,7 +301,7 @@ else:
     for i in range(2, n):
         if n % i == 0:
             is_prime = # ← 이 줄을 직접 작성해보세요
-            break      
+            break
 
 if is_prime:
     print(f"{n}은(는) 소수입니다! ✅")
@@ -314,16 +315,99 @@ else:
 
 컴퓨터가 1~100 사이 임의의 수를 정하고, 사용자가 맞출 때까지 힌트를 줍니다.
 
-- 입력한 수가 정답보다 **크면** `"더 작은 수를 입력하세요"`
-- 입력한 수가 정답보다 **작으면** `"더 큰 요
+- 입력한 수가 정답보다 **크면** → `"📉 더 작은 수를 입력하세요."`
+- 입력한 수가 정답보다 **작으면** → `"📈 더 큰 수를 입력하세요."`
+- 최대 **7번** 안에 맞추면 성공, 실패하면 정답을 알려줍니다.
+
+```python
+import random
+
+answer = random.randint(1, 100)
+max_tries = 7
+tries = 0
+
+print("🎮 숫자 맞추기 게임! 1~100 사이의 수를 맞춰보세요.")
+print(f"기회는 {max_tries}번입니다.\n")
+
+while tries < max_tries:
+    guess = int(input(f"[{tries+1}/{max_tries}] 숫자를 입력하세요: "))
+    tries += 1
+
+    if guess == answer:
+        print(f"🎉 정답! {tries}번 만에 맞췄습니다!")
+        break
+    elif guess > answer:
+        print("📉 더 작은 수를 입력하세요.")
+    else:
+        print("📈 더 큰 수를 입력하세요.")
+else:
+    print(f"😢 실패! 정답은 {answer}이었습니다.")
+```
+
+---
+
+### 🎯 응용 4-3 — 성적 분석기
+
+학생 이름과 점수를 딕셔너리로 저장하고, 평균·최고점·최저점을 구하세요.
+
+- 점수에 따라 등급을 자동 부여합니다: `A(90↑)` / `B(80↑)` / `C(70↑)` / `D(60↑)` / `F`
+- `max()`, `min()`, `sum()` 내장 함수를 활용하세요.
+
+```python
+scores = {}
+n = int(input("학생 수를 입력하세요: "))
+
+for i in range(n):
+    name = input(f" 학생 {i+1} 이름: ")
+    score = int(input(f" {name}의 점수: "))
+    scores[name] = score
+
+print("\n📊 성적 결과")
+print("-" * 25)
+for name, score in scores.items():
+    # grade 변수에 등급을 판별하는 조건문을 작성하세요
+    grade = # ← 이 줄을 직접 작성해보세요
+    print(f"{name:10s}: {score:3d}점 ({grade})")
+
+print("-" * 25)
+print(f"평균: {sum(scores.values()) / len(scores):.1f}점")
+print(f"최고: {max(scores, key=scores.get)} {max(scores.values())}점")
+print(f"최저: {min(scores, key=scores.get)} {min(scores.values())}점")
+```
+
+---
+
+### 🎯 응용 4-4 — 피라미드 패턴 출력
+
+`n`을 입력받아 아래와 같은 별(`*`) 피라미드를 출력하세요.
+
+```
+    *
+   ***
+  *****
+ *******
+*********
+```
+
+- 힌트: 공백 수 = `n - i`, 별 수 = `2*i - 1`
+
+```python
+n = int(input("피라미드 높이를 입력하세요: "))
+
+for i in range(1, n + 1):
+    # 여기에 코드를 작성하세요
+    spaces = ' ' * (n - i)
+    stars = '*' * (2 * i - 1)
     print(spaces + stars)
 ```
 
 ---
 
-### 🎯 응용 4-5 — 단어 빈도 분석기
+### 🎯 응용 4-5 — 단어 빈도 분석기 (딕셔너리 + 반복문)
 
-문장을 입력받아 각 단어가 몇 번 등장하는지 딕셔너리로 카운트하세요.
+문장을 입력받아 각 단어가 몇 번 등장하는지 딕셔너리로 카운트하고, **빈도 높은 순**으로 출력하세요.
+
+- `.lower()`로 대소문자를 통일하고, `.split()`으로 단어를 분리하세요.
 
 ```python
 sentence = input("문장을 입력하세요: ").lower()
@@ -331,23 +415,25 @@ words = sentence.split()
 
 word_count = {}
 for word in words:
+    # word가 이미 딕셔너리에 있으면 +1, 없으면 1로 초기화
     if word in word_count:
         word_count[word] += 1
     else:
         word_count[word] = 1
 
-sorted_words = sorted(word_count.items(), key=lambda x: x, reverse=True)[1]
+# 빈도 높은 순으로 정렬해서 출력
+sorted_words = sorted(word_count.items(), key=lambda x: x[1], reverse=True)
 
 print("\n📝 단어 빈도:")
 for word, count in sorted_words:
-    print(f"{word}: {count}회")
+    print(f"  {word}: {count}회")
 ```
 
 ---
 
 ## 🎲 Monte Carlo Simulation
 
-난수를 이용해 원주율 \(\pi\) 값을 근사하는 간단한 예제입니다.
+난수를 이용해 원주율 π 값을 근사하는 간단한 예제입니다.
 
 ```python
 import random
@@ -372,7 +458,7 @@ print("원주율 근사값:", pi)
 
 | 주제 | 핵심 문법 |
 |------|-----------|
-| 집합 | `set()`, 합집합 `|`, 교집합 `&`, 차집합 `-` |
+| 집합 | `set()`, 합집합 `\|`, 교집합 `&`, 차집합 `-` |
 | 딕셔너리 | `{}`, `dict[key]`, `del`, `.items()` |
 | 조건문 | `if`, `elif`, `else` |
 | for 반복문 | `for x in list`, `range()` |
@@ -385,8 +471,6 @@ print("원주율 근사값:", pi)
 1. 각 연습 문제를 직접 풀어보기
 2. 응용 예제 중 1개를 스스로 변형해보기
 3. `Monte Carlo Simulation`에서 반복 횟수 `n`을 바꿔가며 결과 비교하기
-
----
 
 ---
 
@@ -557,6 +641,66 @@ else:
 ---
 
 <details>
+<summary>🎯 응용 4-2 — 숫자 맞추기 게임 정답 보기</summary>
+
+```python
+import random
+
+answer = random.randint(1, 100)
+max_tries = 7
+tries = 0
+
+print("🎮 숫자 맞추기 게임! 1~100 사이의 수를 맞춰보세요.")
+print(f"기회는 {max_tries}번입니다.\n")
+
+while tries < max_tries:
+    guess = int(input(f"[{tries+1}/{max_tries}] 숫자를 입력하세요: "))
+    tries += 1
+
+    if guess == answer:
+        print(f"🎉 정답! {tries}번 만에 맞췄습니다!")
+        break
+    elif guess > answer:
+        print("📉 더 작은 수를 입력하세요.")
+    else:
+        print("📈 더 큰 수를 입력하세요.")
+else:
+    print(f"😢 실패! 정답은 {answer}이었습니다.")
+```
+
+</details>
+
+---
+
+<details>
+<summary>🎯 응용 4-3 — 성적 분석기 정답 보기</summary>
+
+```python
+scores = {}
+n = int(input("학생 수를 입력하세요: "))
+
+for i in range(n):
+    name = input(f" 학생 {i+1} 이름: ")
+    score = int(input(f" {name}의 점수: "))
+    scores[name] = score
+
+print("\n📊 성적 결과")
+print("-" * 25)
+for name, score in scores.items():
+    grade = 'A' if score >= 90 else 'B' if score >= 80 else 'C' if score >= 70 else 'D' if score >= 60 else 'F'
+    print(f"{name:10s}: {score:3d}점 ({grade})")
+
+print("-" * 25)
+print(f"평균: {sum(scores.values()) / len(scores):.1f}점")
+print(f"최고: {max(scores, key=scores.get)} {max(scores.values())}점")
+print(f"최저: {min(scores, key=scores.get)} {min(scores.values())}점")
+```
+
+</details>
+
+---
+
+<details>
 <summary>🎯 응용 4-4 — 피라미드 패턴 정답 보기</summary>
 
 ```python
@@ -566,6 +710,31 @@ for i in range(1, n + 1):
     spaces = ' ' * (n - i)
     stars = '*' * (2 * i - 1)
     print(spaces + stars)
+```
+
+</details>
+
+---
+
+<details>
+<summary>🎯 응용 4-5 — 단어 빈도 분석기 정답 보기</summary>
+
+```python
+sentence = input("문장을 입력하세요: ").lower()
+words = sentence.split()
+
+word_count = {}
+for word in words:
+    if word in word_count:
+        word_count[word] += 1
+    else:
+        word_count[word] = 1
+
+sorted_words = sorted(word_count.items(), key=lambda x: x[1], reverse=True)
+
+print("\n📝 단어 빈도:")
+for word, count in sorted_words:
+    print(f"  {word}: {count}회")
 ```
 
 </details>

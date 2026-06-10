@@ -365,8 +365,33 @@ for i in range(n):
 print("\n📊 성적 결과")
 print("-" * 25)
 for name, score in scores.items():
-    # grade 변수에 등급을 판별하는 조건문을 작성하세요
-    grade = # ← 이 줄을 직접 작성해보세요
+scores = {}
+n = int(input("학생 수를 입력하세요: "))
+
+for i in range(n):
+    name = input(f" 학생 {i+1} 이름: ")
+    score = int(input(f" {name}의 점수: "))
+    scores[name] = score
+
+print("\n📊 성적 결과")
+print("-" * 25)
+for name, score in scores.items():
+    if score >= :                   #score >= 에 들어갈 숫자를 적어보세요!
+        grade = 'A'
+    elif score >= :
+        grade = 'B'
+    elif score >= :
+        grade = 'C'
+    elif score >= :
+        grade = 'D'
+    else:
+        grade = 'F'
+    print(f"{name:10s}: {score:3d}점 ({grade})")
+
+print("-" * 25)
+print(f"평균: {sum(scores.values()) / len(scores):.1f}점")
+print(f"최고: {max(scores, key=scores.get)} {max(scores.values())}점")
+print(f"최저: {min(scores, key=scores.get)} {min(scores.values())}점")
     print(f"{name:10s}: {score:3d}점 ({grade})")
 
 print("-" * 25)
@@ -685,7 +710,33 @@ for i in range(n):
 print("\n📊 성적 결과")
 print("-" * 25)
 for name, score in scores.items():
-    grade = 'A' if score >= 90 else 'B' if score >= 80 else 'C' if score >= 70 else 'D' if score >= 60 else 'F'
+scores = {}
+n = int(input("학생 수를 입력하세요: "))
+
+for i in range(n):
+    name = input(f" 학생 {i+1} 이름: ")
+    score = int(input(f" {name}의 점수: "))
+    scores[name] = score
+
+print("\n📊 성적 결과")
+print("-" * 25)
+for name, score in scores.items():
+    if score >= 90:
+        grade = 'A'
+    elif score >= 80:
+        grade = 'B'
+    elif score >= 70:
+        grade = 'C'
+    elif score >= 60:
+        grade = 'D'
+    else:
+        grade = 'F'
+    print(f"{name:10s}: {score:3d}점 ({grade})")
+
+print("-" * 25)
+print(f"평균: {sum(scores.values()) / len(scores):.1f}점")
+print(f"최고: {max(scores, key=scores.get)} {max(scores.values())}점")
+print(f"최저: {min(scores, key=scores.get)} {min(scores.values())}점")
     print(f"{name:10s}: {score:3d}점 ({grade})")
 
 print("-" * 25)

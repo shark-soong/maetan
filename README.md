@@ -303,7 +303,7 @@ else:
             is_prime = # ← 이 줄을 직접 작성해보세요
             break
 
-if is_prime:
+if is_prime == True:                  
     print(f"{n}은(는) 소수입니다! ✅")
 else:
     print(f"{n}은(는) 소수가 아닙니다. ❌")
@@ -413,8 +413,7 @@ sentence = input("문장을 입력하세요: ").lower()
 words = sentence.split()
 
 word_count = {}
-for word in words:
-    # word가 이미 딕셔너리에 있으면 +1, 없으면 1로 초기화
+for word in words:         # word가 이미 딕셔너리에 있으면 +1, 없으면 1로 초기화
     if word in word_count:
         word_count[word] += 1
     else:
